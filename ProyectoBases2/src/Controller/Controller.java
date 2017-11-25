@@ -20,18 +20,19 @@ import org.json.simple.parser.ParseException;
  * @author geovanny
  */
 public class Controller {
-    private ArrayList websites;
+    private ArrayList data;
 
-    public ArrayList getWebsites() {
-        return websites;
+    public ArrayList getData() {
+        return data;
     }
 
-    public void setWebsites(ArrayList websites) {
-        this.websites = websites;
+    public void setData(ArrayList data) {
+        this.data = data;
     }
 
+    
     public Controller() {
-        this.websites = new ArrayList<Website>();
+        this.data = new ArrayList<Text>();
     }
     
     public void JsonRead(String filename) throws IOException, ParseException{
@@ -51,14 +52,12 @@ public class Controller {
                 String title = (String) site.get("Title");
                 String url = (String) site.get("URL");
                 JSONArray textarray = (JSONArray) site.get("Content");
-                ArrayList texts = new ArrayList<Text>();
                 for (Object t : textarray) {
                     JSONObject textobject = (JSONObject) t;
                     String tag = (String) textobject.get("Tag");
                     String text = (String) textobject.get("Text");
-                    texts.add(new Text(tag, text, url, title));
+                    data.add(new Text(tag, text, url, title));
                 }
-                websites.add(new Website(title, url, texts));
             }
             catch(Exception e) {
                 System.out.println("Informacion Invalida");
