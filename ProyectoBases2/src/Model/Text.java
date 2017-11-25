@@ -54,6 +54,10 @@ public class Text {
         this.title = title;
     }
     
+    public void print(){
+        System.out.println("Palabra: " + text + " Tag: " + tag + " URL: " + url);
+    }
+    
     
     
     

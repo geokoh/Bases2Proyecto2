@@ -6,6 +6,7 @@
 package proyectobases2;
 
 import Controller.Controller;
+import Model.Text;
 import java.io.IOException;
 import org.json.simple.parser.ParseException;
 
@@ -22,7 +23,10 @@ public class ProyectoBases2 {
         // TODO code application logic here
         Controller cont = new Controller();
         cont.JsonRead("newfile12.json");
-        System.out.println("ok");
+        for (int i= 0; i<20; i++){
+           Text a = (Text) cont.getData().get(i);
+           a.print();
+        }
     }
     
 }
