@@ -37,14 +37,9 @@ public class Controller {
     
     public void JsonRead(String filename) throws IOException, ParseException{
         JSONParser parser = new JSONParser();
-        int i = 0;
         JSONArray sites = (JSONArray) parser.parse(new FileReader(filename));
         
         for (Object o : sites){
-            i += 1;
-            if(i== 78){
-                System.out.println("a");
-            }
             String otemp = (String) o;
             String object = otemp.replaceAll(",$", "");
             try {
@@ -56,7 +51,12 @@ public class Controller {
                     JSONObject textobject = (JSONObject) t;
                     String tag = (String) textobject.get("Tag");
                     String text = (String) textobject.get("Text");
-                    data.add(new Text(tag, text, url, title));
+                    String[] words = text.split(" ");
+                    for(int i = 0; i < words.length; i ++) {
+                        String word = words[i];
+                        data.add(new Text(tag, word, url, title));
+                    }
+                    
                 }
             }
             catch(Exception e) {
