@@ -1,0 +1,12 @@
+# ejecutar un job
+hadoop jar Job1.jar newfilenuevo.json hadoop/output/job1
+
+# eliminar outputs y crear nuevo
+hadoop fs -rm -r hadoop/output
+hadoop fs -mkdir hadoop/output
+
+# borrar job
+hadoop fs -rm Job1.jar
+
+# meter job a hadoop
+hadoop fs -put Job1.jar
