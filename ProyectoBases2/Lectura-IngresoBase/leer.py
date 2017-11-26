@@ -69,3 +69,5 @@ if __name__ == "__main__":
         Hadoop3(archivo)
     else:
         print("No funciono")
+#archivo.py "_nombre de archivo para leer_" _Nombre de Funcion_
+#Nombre de funcion = Hadoop1 | Hadoop2 | Hadoop3
