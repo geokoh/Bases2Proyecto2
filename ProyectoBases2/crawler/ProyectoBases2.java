@@ -39,9 +39,10 @@ public class ProyectoBases2 {
             try{
                 
                 String line = value.toString();
-                System.err.print(line);
                 JSONParser parser = new JSONParser();
+                
                 JSONArray sites = (JSONArray) parser.parse(line);
+                
                 
                 for (Object o : sites){
                     String otemp = (String) o;
@@ -59,23 +60,22 @@ public class ProyectoBases2 {
                             for(int i = 0; i < words.length; i ++) {
                                 String word = words[i];
                                 //data.add(new Model.Text(tag, word, url, title));
-                                System.err.print(word);
                                 context.write(new Text(word), new IntWritable(1));
                             }
                             
                         }
                     }
                     catch(Exception e) {
-                        //throw new IllegalArgumentException("error normal: " + e.getMessage());
+                        
                     }
                 }
-            }catch(Exception ex){
-                //throw new IllegalArgumentException("NO SE PUDO LEER EL JSON");
+            }catch(ParseException ex){
+
             }
         }
     }
 
-    public static class Reduce extends Reducer<Text,IntWritable,Text, IntWritable>{
+    public static class Reduce extends Reducer<Text,Text,Text, IntWritable>{
 
         public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException{
 
@@ -94,21 +94,20 @@ public class ProyectoBases2 {
             System.err.println("Usage: ProyectoBases2 <in> <out>");
             System.exit(2);
         }*/
-        System.err.print("error de prueba");
+
         Job job = new Job(conf, "ProyectoBases2");
         job.setJarByClass(ProyectoBases2.class);
         job.setMapperClass(Map.class);
         job.setReducerClass(Reduce.class);
         job.setMapOutputKeyClass(Text.class);
-        job.setMapOutputValueClass(IntWritable.class);
+        job.setMapOutputValueClass(Text.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
         job.setInputFormatClass(TextInputFormat.class);
         job.setOutputFormatClass(TextOutputFormat.class);
-        
-        
-        FileInputFormat.addInputPath(job, new Path(args[0]));
-        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+
+        FileInputFormat.addInputPath(job, new Path(args[1]));
+        FileOutputFormat.setOutputPath(job, new Path(args[0]));
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
