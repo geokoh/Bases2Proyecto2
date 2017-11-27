@@ -19,6 +19,8 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
 //import Model.Text;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.json.simple.JSONArray;
@@ -61,7 +63,7 @@ public class Job2 {
                                 String word = words[i];
                                 //data.add(new Model.Text(tag, word, url, title));
                                 System.err.print(word);
-                                context.write(new Text(word), new Text(url));
+                                context.write( new Text(url), new Text(word));
                             }
                             
                         }
@@ -80,18 +82,29 @@ public class Job2 {
 
         public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException{
 
-            JSONObject listaJSON = new JSONObject();
-            JSONArray paginas = new JSONArray();
+            JSONObject salidaJSON = new JSONObject();
+            
+            HashMap<String,Integer> palabraNumero = new HashMap<String,Integer>();
+            ArrayList<String> listaPalabras = new ArrayList<String>();
             
             for(Text val : values){
-                JSONObject jo = new JSONObject();
-                jo.put("Pagina", val.toString());
-                paginas.add(jo);
+                String palabra = val.toString();
+                if (!listaPalabras.contains(palabra)){
+                    listaPalabras.add(palabra);
+                    palabraNumero.put(palabra, 1);
+                }
+                else{
+                    palabraNumero.put(palabra, palabraNumero.get(palabra) + 1);
+                }
             }
-            listaJSON.put("Paginas",paginas);
-            listaJSON.put("Palabra", key.toString());
+            salidaJSON.put("Pagina", key.toString());
+            
+            // json = {Palabra: numero, Palabra: numero}
+            JSONObject palabrasNumeroJSON = new JSONObject();
+            palabrasNumeroJSON.putAll(palabraNumero);
+            salidaJSON.put("Palabras", palabrasNumeroJSON);
             //throw new IllegalArgumentException("error normal: " + paginas.toString());
-            context.write(NullWritable.get(), new Text(listaJSON.toString()));
+            context.write(NullWritable.get(), new Text(salidaJSON.toString()));
         }
     }
 
