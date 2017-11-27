@@ -1,0 +1,457 @@
+/* Generales */
+*{
+	font-family: verdana;
+	outline:0px;
+}
+
+body{
+	background: white;	
+}
+
+select{
+	border-radius: 10px;
+	padding: 0.2%;
+}
+
+input{
+	border-radius: 10px;
+}
+#mensajeFuncional{
+	text-align: center;
+	margin-top: 5%;
+	font-size: 25px;
+	width: 50%;
+	margin-left: 25%;
+	font-weight: bold;
+}
+
+#cuerpoDePagina{
+	width: 96%;
+	margin-left: 2%;
+	margin-right: 2%;
+	overflow: hidden;
+}
+/*#############*/
+
+
+/* Barra superior */
+#presentacion{
+	width: 100%;
+	background: white;
+	text-align: center;
+}
+/*#############*/
+
+/* Botonera */
+#botoneraInicial{
+	width: 100%;
+	padding: 0.5%;
+	margin-left: 0%;
+}
+
+#botoneraInicial input{
+	font-size: 14px;
+	padding-top: 0.5%;
+	padding-bottom: 0.6%;
+	text-align: center;
+	width: 19.5%; 
+	border-radius: 20px;
+}
+
+#botoneraInicial input:hover{
+	background: red;
+}
+
+
+
+
+
+/* Seccion 1, generar links */
+.CursosGeneral p{
+	font-size: 18px;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+.CursosGeneral2 p{
+	font-size: 18px;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+#titulo{
+	color: white;
+	font-size: 20px;
+}
+
+.CursosGeneral select{
+	font-size: 13px;
+	margin-bottom: 1%;	
+}
+.CursosGeneral2 select{
+	font-size: 13px;
+	margin-bottom: 1%;	
+}
+
+.Curso{
+	width: 21%;
+	height: 130px;
+	margin-top: 0.5%;
+	margin-bottom: 1%;
+	margin-left: 1%;
+	margin-right: 1%;
+	padding: 1%;
+	overflow: hidden;
+	float: left;
+	background: #DBCECE;
+	border-radius: 30px;
+}
+
+.Curso p{
+	text-align: center;
+	height: 50px;
+	color: black;
+	font-size: 15px;
+	margin-top: 0%;
+	margin-bottom: 3%;
+}
+
+#cuadroDatosIniciales{
+	width: 100%;
+	float: left;
+	color: white;
+	margin-bottom: 2%;
+	margin-top: 1%;
+}
+.Conboboxes{
+	width: 100%;
+	float: left;
+	margin-bottom: 2%;
+	background: white;
+	border-radius: 10px;	
+}
+
+.Conboboxes:hover{
+	background: #06A69F;
+}
+
+.ConboboxesProfesores{
+	width: 95%;
+	margin-bottom: 2%;
+	background: white;
+	border-radius: 10px;
+}
+
+.botonCurso{
+	font-size: 12px;
+	margin: 1%;
+	padding: 1%;
+	width: 31.32%;
+	background: #C6BCBC;
+}
+
+.botonCurso:hover{
+	background: #06A69F;
+}
+
+#agregar{
+	width: 8%;
+	padding-top: 0.1%;
+	padding-bottom: 0.2%;
+	text-align: center;
+}
+#agregar:hover{
+	background: red;
+}
+
+.CursosGeneral{
+	width: 100%;
+	background: #021B7C;
+	display: none;
+	overflow: hidden;
+	text-align: center;
+	border-radius: 50px;
+}
+
+.CursosGeneral2{
+	width: 100%;
+	background: grey;
+	display: block;
+	overflow: hidden;
+	text-align: center;
+	border-radius: 50px;
+	margin-bottom: 10px;
+}
+
+.generarlinks{
+	width: 100%;
+	background: #021B7C;
+	display: none;
+	overflow: hidden;
+	text-align: center;
+	border-radius: 50px;
+}
+
+.profesorGenerado{
+	float: left;
+	margin-left: 1.3%;
+	margin-bottom: 1%;
+	padding: 0.5%;
+	width: 47%;
+	background: #C6BCBC;
+	border-radius: 30px;
+}
+.profesorGenerado p{
+	font-size: 12px;
+	overflow: hidden;
+}
+
+#nombreProfesor{
+	font-size: 20px;
+}
+
+
+
+
+
+
+
+/* CSS del formulario */
+#introduccionFormulario{
+	text-align: center;
+	overflow: hidden;
+	color: black;
+	margin-top: 1%;
+	font-size: 1vw;
+}
+#seleccionInicial{
+	background: #021B7C;
+	width: 49.5%;
+	overflow: hidden;
+	border-radius: 20px;
+	float: left;
+	margin-right: 0.5%;
+}
+#horariosFormulario{
+	background: #021B7C;
+	width: 50%;
+	text-align: center;
+	overflow: hidden;
+	float: left;
+	color: white;
+	border-radius: 20px;
+}
+#CursosFormulario{
+	background: #021B7C;
+	width: 100%;
+	margin-bottom: 1%;
+	text-align: center;
+	overflow: hidden;
+	float: left;
+	color: white;
+	border-radius: 20px;
+}
+
+#titulo2{
+	margin: 0%;
+}
+#nombreProfesor{
+	margin-top: 0%;
+}
+
+#seleccionInicial div{
+	width: 100%;
+	float: left;
+	text-align: center;
+	font-size: 1.2vw;
+	margin-top: 1.85%;
+	margin-bottom: 0.5%;
+}
+
+#seleccionInicial div p {
+	margin: 0%;
+	color: white;
+}
+
+.botonForm{
+	margin: 1%;
+	margin-top: 0%;
+	font-size: 1.1vw;
+}
+
+#divForm{
+	float: left;
+	width: 98%;
+	padding: 0.5%;
+}
+
+#selectsForm{
+	margin-bottom: 3%;
+}
+#enviarForm{
+	width: 100%;
+	overflow: hidden;
+	text-align: center;
+	margin-top: -1%;
+	margin-bottom: 1%;
+}
+
+.enviarFinal{
+	width: 19%;
+	margin-top: 1%;
+	margin-bottom: 2%;
+	margin-left: 40%;
+	font-size: 1.3vw;
+	padding: 0.5%;
+	background: #C6BCBC;
+}
+
+
+#infoProfesor{
+	background: #021B7C;
+	text-align: center;
+	overflow: hidden;
+	width: 99%;
+	padding: 0.5%;
+	padding-bottom: 0%;
+	margin-bottom: 1%;
+	margin-top: 0.5%;
+	border-radius: 20px;
+}
+#infoProfesor p{
+	color: white;
+	font-size: 1.4vw;
+	margin-top: 0.5%;
+}
+
+.comboboxFormulario{
+	width: 35%;
+	margin: 0.5%;
+	overflow: hidden;
+	float: left;
+	margin-left: 25%;
+	margin-right: 0%;
+}
+.comboboxFormulario2{
+	width: 11.5%;
+	margin: 0.5%;
+	overflow: hidden;
+	float: left;
+}
+
+#imgForm{
+	margin-bottom: 0.5%;
+}
+
+#selectsForm p{
+	float: left;
+	margin-bottom: 0%;
+	text-align: left;
+}
+#txtFomInfo3{
+	margin-bottom: 0%;
+	text-align: center;
+	width:30%;
+	margin-left: 40%;
+}
+.comboboxFormulario3{
+	width: 60%;
+	margin: 1%;
+	overflow: hidden;
+	float: left;
+	margin-left: 20%;
+	margin-right: 0%;
+}
+
+#BotoneraForms{
+	width:98%;
+	float: left;
+	margin: 1%;
+}
+
+
+
+
+
+
+
+
+
+
+/* Datos finales */
+#verDatosFinalesHorarios{
+	display: none;
+	width: 100%;
+	overflow: hidden;
+}
+.infoBloque{
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.5vw;
+	margin-top: 2%;
+}
+.tableSpecial{
+	width: 100%;
+	background: black;
+}
+
+.columna{
+	width: 13.93%;
+	margin-right: 0.1%;
+	margin-top: 0.1%;
+	margin-left: 0.1%;
+	float: left;
+	background: #021B7C;
+	color: white;
+	overflow: hidden;
+	text-align: center;
+	font-size: 1.3vw;
+	font-weight: bold;
+}
+
+/* horario */
+.subColumna{
+	width: 13.088%;
+	margin-left: 0.1%;
+	margin-right: 0.1%;
+	height: 80px;
+	padding: 0.5%;
+	float: left;
+	background: #A4A4A4;
+	overflow: hidden;
+	font-size: 1vw;
+	font-weight: bold;
+	text-align: center;
+}
+
+.subColumna p{
+	width:100%;
+	overflow: hidden;
+	margin-top: 18%;
+}
+
+.infoCol{
+	width: 100%;
+	overflow: hidden;
+	font-size: 0.7vw;
+	font-weight: bold;
+	text-align:center;
+}
+.infoCol div{
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+
+#botoneraNext{
+	width: 10%;
+	margin-left: 45%;
+	margin-top: 3%;
+	overflow: hidden;
+	font-weight: bold;
+}
+#valorSeleccionado{
+	float: left;
+	width: 100%;
+	font-size: 1.3vw;
+}
