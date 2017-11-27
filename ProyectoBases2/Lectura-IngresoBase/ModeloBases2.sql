@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `bases2`.`palabra_contador` (
   `Cantidad` INT(11) NOT NULL,
   PRIMARY KEY (`idPalabra_Contador`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 363
+AUTO_INCREMENT = 415
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -38,16 +38,29 @@ CREATE TABLE IF NOT EXISTS `bases2`.`palabra_url` (
   `Link` VARCHAR(150) NOT NULL,
   `PalabraID` INT(11) NOT NULL,
   PRIMARY KEY (`idpalabra_url`),
+  INDEX `palabraXlink_idx` (`PalabraID` ASC),
   CONSTRAINT `palabraXlink`
     FOREIGN KEY (`PalabraID`)
     REFERENCES `bases2`.`palabra_contador` (`idPalabra_Contador`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 1298
+AUTO_INCREMENT = 1379
 DEFAULT CHARACTER SET = utf8;
 
-CREATE INDEX `palabraXlink_idx` ON `bases2`.`palabra_url` (`PalabraID` ASC);
+
+-- -----------------------------------------------------
+-- Table `bases2`.`url_palabra_cant`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bases2`.`url_palabra_cant` (
+  `idurl_palabra_cant` INT(11) NOT NULL AUTO_INCREMENT,
+  `Link` VARCHAR(150) NOT NULL,
+  `Palabra` VARCHAR(150) NOT NULL,
+  `Cantidad` INT(11) NOT NULL,
+  PRIMARY KEY (`idurl_palabra_cant`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 10668
+DEFAULT CHARACTER SET = utf8;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

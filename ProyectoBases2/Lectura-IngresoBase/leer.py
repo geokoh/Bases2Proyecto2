@@ -31,6 +31,34 @@ def Hadoop1(direccion):
     cur.close()
     db.close()
 
+def Hadoop2(direccion):
+    """Funcion encargada de ingresar la informacion del segndo job de Hadoop"""
+    #Conexion a Mysql
+    db = pymysql.connect(host="localhost",user="basesUser",password="1234",db="bases2",charset="utf8mb4",cursorclass=pymysql.cursors.DictCursor)
+    cur = db.cursor()
+
+    #Lectura de archivo
+    archivo = open(direccion, "r", encoding="utf-8")
+    for x in archivo.readlines():
+
+        #Guarda el .json en diccionario de python
+        dic = json.loads(x)
+
+        #Insersion de los datos a la base
+        for palabras in dic['Palabras']:
+            sql = "INSERT INTO bases2.url_palabra_cant (Link, Palabra, Cantidad) \
+    VALUES ('%s', '%s', '%d')" % (dic['Pagina'], palabras, dic['Palabras'][palabras])
+            try:
+                cur.execute(sql)
+                db.commit()
+            except:
+                db.rollback()
+
+    #Cierre de archivos y base
+    archivo.close()
+    cur.close()
+    db.close()
+
 def Hadoop3(direccion):
     """Función encargada de ingresar la información del tercer job de Hadoop"""
 
@@ -65,6 +93,8 @@ if __name__ == "__main__":
     archivo = sys.argv[1] #Guarda archivo para leer
     if sys.argv[2] == "Hadoop1":
         Hadoop1(archivo)
+    elif sys.argv[2] == "Hadoop2":
+        Hadoop2(archivo)
     elif sys.argv[2] == "Hadoop3":
         Hadoop3(archivo)
     else:
